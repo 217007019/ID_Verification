@@ -1,3 +1,97 @@
 <resources>
     <string name="app_name">ID_Verification</string>
+    <string name="loading_please_wait">Loading....Please wait...</string>
+    <string name="welcome">Welcome</string>
+    <string name="enter_your_persal_number">enter your Persal number</string>
+    <string name="enter_your_password">enter your password</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="star">star</string>
+    <string name="register_new_user">Register New User</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="enter_civilian_surname">Enter Civilian surname</string>
+    <string name="enter_civilian_name">Enter Civilian name</string>
+    <string name="enter_civilian_id_number">Enter Civilian ID Number</string>
+    <string name="please_register_the_person_who_brought_the_id">Please Register The Person Who Brought The ID</string>
+    <string name="scan_the_id">Scan the ID</string>
+    <string name="scan">scan</string>
+    <string name="search">search</string>
+    <string name="enter_id_number">Enter ID Number</string>
+    <string name="persal_number">Persal Number</string>
+    <string name="title">Title</string>
+    <string name="take_a_picture">Take a picture</string>
+    <string name="enter_middle_name">Enter Middle name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="enter_name">Enter name</string>
+    <string name="first_name">First Name</string>
+    <string name="surname">Surname</string>
+    <string name="enter_surname">Enter Surname</string>
+    <string name="identity_number">Identity Number</string>
+    <string name="rank">Rank</string>
+    <string name="gender">Gender</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="who_is_being_registered">Who is being registered?</string>
+    <string name="identification_picture">Identification Picture</string>
+    <string name="Dash">-------------------------------------------------------------------------------</string>
+
+    <string-array name="type_array">
+        <item>Admin</item>
+        <item>Police</item>
+    </string-array>
+
+    <string-array name="gender_array">
+        <item>Female</item>
+        <item>Male</item>
+        </string-array>
+
+    <string-array name="rank_array">
+        <item>National commissioner</item>
+        <item>Deputy national commissioner</item>
+        <item>Divisional commissioner</item>
+        <item>Provincial commissioner</item>
+        <item>Assistant commissioner</item>
+        <item>Director</item>
+        <item>Senior superintendent</item>
+        <item>Superintendent</item>
+        <item>General</item>
+        <item>Lieutenant-general</item>
+        <item>Major-general</item>
+        <item>Brigadier</item>
+        <item>Colonel</item>
+        <item>Lieutenant-colonel</item>
+        <item>Major</item>
+        <item>Captain</item>
+        <item>Constable</item>
+        <item>Lieutenant</item>
+        <item>Warrant Officer</item>
+        <item>Sergeant</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>South Africa</item>
+    </string-array>
+
+    <string-array name="Province">
+        <item>Gauteng</item>
+        <item>Limpopo</item>
+        <item>Eastern Cape</item>
+        <item>Northen Cape</item>
+        <item>Free State></item>
+        <item>KwaZulu-Natal</item>
+        <item>North West</item>
+        <item>Western Cape</item>
+    </string-array>
+
+    <string-array name="Title">
+    <item>Mr</item>
+    <item>Mrs</item>
+    <item>Miss</item>
+    <item>Ms</item>
+    <item>Pastor</item>
+    <item>DR</item>
+</string-array>
+
 </resources>

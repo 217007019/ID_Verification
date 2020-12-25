@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:orientation="vertical"
     android:background="@color/colorPrimaryLight"
-    android:orientation="vertical">
+    tools:context=".Scan">
 
     <ProgressBar
         android:id="@+id/login_progress"
@@ -36,76 +36,68 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvWelcomeHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/PrimaryText"
-            android:textSize="14sp"/>
 
         <TextView
-            android:id="@+id/tvRegisterHome"
+            android:id="@+id/tvScanID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/please_register_the_person_who_brought_the_id"
+            android:layout_marginEnd="39dp"
+            android:textAlignment="center"
             android:textColor="@color/PrimaryText"
-            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"/>
-
-        <EditText
-            android:id="@+id/etID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/enter_civilian_id_number"
-            android:textColor="@color/PrimaryText"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:inputType="number"/>
-
-        <EditText
-            android:id="@+id/etName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            android:hint="@string/enter_civilian_name"
-            android:textColor="@color/PrimaryText"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"/>
-
-        <EditText
-            android:id="@+id/etSurname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            android:hint="@string/enter_civilian_surname"
-            android:textColor="@color/PrimaryText"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"/>
+            android:textSize="50dp"
+            android:text="@string/scan_the_id"/>
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnScan1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/buttons"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginStart="30dp"
-            android:text="@string/register"
-            android:textColor="@color/Text"/>
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/buttons"
+            android:text="@string/scan"
+            android:textColor="@color/Text"
+            />
 
+        <TextView
+            android:id="@+id/tvScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/PrimaryText"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="or search using ID number"/>
+
+        <EditText
+            android:id="@+id/etScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_horizontal"
+            android:hint="@string/enter_id_number"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/btnScan2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/buttons"
+            android:text="@string/search"
+            android:textColor="@color/Text"
+            />
 
     </LinearLayout>
+
 </LinearLayout>

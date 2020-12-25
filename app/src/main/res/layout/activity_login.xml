@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:orientation="vertical"
     android:background="@color/colorPrimaryLight"
-    android:orientation="vertical">
+    tools:context=".Login">
 
     <ProgressBar
         android:id="@+id/login_progress"
@@ -37,74 +37,95 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvWelcomeHome"
+            android:id="@+id/tvWelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/PrimaryText"
-            android:textSize="14sp"/>
-
-        <TextView
-            android:id="@+id/tvRegisterHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/please_register_the_person_who_brought_the_id"
-            android:textColor="@color/PrimaryText"
-            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:text="@string/welcome"
+            android:textSize="34sp"
             android:textStyle="bold"
+            android:textColor="@color/PrimaryText"/>
+
+        <ImageView
+            android:id="@+id/ivStar"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center"/>
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/star"
+            app:srcCompat="@drawable/star"
+            />
+
+
 
         <EditText
-            android:id="@+id/etID"
+            android:id="@+id/etPersalNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/enter_civilian_id_number"
-            android:textColor="@color/PrimaryText"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:ems="10"
             android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/enter_your_persal_number"
             android:inputType="number"/>
 
         <EditText
-            android:id="@+id/etName"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            android:hint="@string/enter_civilian_name"
-            android:textColor="@color/PrimaryText"
+            android:tooltipText="15dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"/>
-
-        <EditText
-            android:id="@+id/etSurname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            android:hint="@string/enter_civilian_surname"
-            android:textColor="@color/PrimaryText"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"/>
+            android:hint="@string/enter_your_password"
+            android:inputType="textPassword"/>
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/buttons"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:text="@string/register"
+            android:text="@string/login"
             android:textColor="@color/Text"/>
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/forgot_your_password"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/register_new_user"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/PrimaryText"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+
 
 
     </LinearLayout>
