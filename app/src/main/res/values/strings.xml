@@ -37,6 +37,8 @@
     <string name="identification_picture">Identification Picture</string>
     <string name="Dash">-------------------------------------------------------------------------------</string>
     <string name="login_in_as_admin">Login As Admin</string>
+    <string name="province">Province</string>
+    <string name="station">Station</string>
 
     <string-array name="type_array">
         <item>Admin</item>
@@ -84,6 +86,70 @@
         <item>KwaZulu-Natal</item>
         <item>North West</item>
         <item>Western Cape</item>
+    </string-array>
+
+    <string-array name="Station">
+
+    </string-array>
+
+    <string-array name="Gauteng_Station">
+        <item>Benoni Station</item>
+        <item>Sandton Station</item>
+        <item>Soweto Station</item>
+        <item>Alex Station</item>
+        <item>Pretoria Station</item>
+    </string-array>
+
+    <string-array name="Limpopo_Station">
+        <item>Phalaborwa Station</item>
+        <item>Thabazimbi Station</item>
+        <item>Musina Station</item>
+        <item>Polokwane Station</item>
+    </string-array>
+
+    <string-array name="Easter_Cape_Station">
+        <item>Bisho Station</item>
+        <item>Mtata Station</item>
+        <item>Port Elizabeth Station</item>
+        <item>Komani Station</item>
+        <item>Uitenhage</item>
+    </string-array>
+
+    <string-array name="Northern_Cape_Station">
+        <item>Upington Station</item>
+        <item>Kimberley Station</item>
+        <item>Prieska Station</item>
+        <item>Colesburg Station</item>
+    </string-array>
+
+    <string-array name="Free_State_Station">
+        <item>Beloemfontein Station</item>
+        <item>Welkom Station</item>
+        <item>Harris Smith Station</item>
+        <item>Virginia Station</item>
+    </string-array>
+
+    <string-array name="KwaZulu_Natal_Station">
+        <item>Durban Station</item>
+        <item>Empangeni Station</item>
+        <item>Richards Bay Station</item>
+        <item>Kokstad Station</item>
+    </string-array>
+
+    <string-array name="Northern_West_Station">
+        <item>Potchefstroom Station</item>
+        <item>Hartbeespoort Station</item>
+        <item>Brits Station</item>
+        <item>Klerksdorp Station</item>
+        <item>Rustenburg Station</item>
+    </string-array>
+
+    <string-array name="Western_Cape_Station">
+        <item>Cape Town Station</item>
+        <item>Laignsburg Station</item>
+        <item>Knysna Station</item>
+        <item>George Station</item>
+        <item>Worstern Station</item>
     </string-array>
 
     <string-array name="Title">

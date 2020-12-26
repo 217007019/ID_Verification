@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:fillViewport="true"
     android:background="@color/colorPrimaryLight"
     tools:context=".Register">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLargeInverse"
@@ -209,7 +214,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="@string/enter_id_number" />
 
         <TextView
@@ -256,6 +261,50 @@
             android:layout_marginEnd="30dp"
             android:layout_gravity="center_horizontal"
             android:entries="@array/rank_array"/>
+
+        <TextView
+            android:id="@+id/tvR_Province"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/province"
+            android:textColor="@color/PrimaryText"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"/>
+
+        <Spinner
+            android:id="@+id/sR_Province"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_gravity="center_horizontal"
+            android:entries="@array/Province"/>
+
+        <TextView
+            android:id="@+id/tvR_Station"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/station"
+            android:textColor="@color/PrimaryText"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"/>
+
+        <Spinner
+            android:id="@+id/sR_Station"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_gravity="center_horizontal"
+            android:entries="@array/Station"/>
 
         <TextView
             android:id="@+id/tvR_Email"
@@ -385,4 +434,6 @@
 
     </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

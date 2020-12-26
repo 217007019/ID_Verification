@@ -36,18 +36,22 @@ public class Admin extends AppCompatActivity
         tvA_ForgotPassword = findViewById(R.id.tvA_ForgotPassword);
         tvAdmin = findViewById(R.id.tvAdmin);
 
+
         btnA_Login = findViewById(R.id.btnA_Login);
+
 
         etA_Email = findViewById(R.id.etA_Email);
         etAPassword = findViewById(R.id.etA_Password);
+
+
 
         btnA_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
                 //This button needs to first test is the user who's trying to login is the Admin.
-                //If they are not, they wont be allowed in. If they are admin, they will be sent to Register class
-                startActivity(new Intent(Admin.this, Register.class));
+                //If they are not, they wont be allowed in. If they are admin they will be sent to admin_home
+                startActivity(new Intent(Admin.this,Admin_Home.class));
 
             }
         });
@@ -67,5 +71,9 @@ public class Admin extends AppCompatActivity
 
             }
         });
+
+
+
+
     }
 }
