@@ -55,6 +55,8 @@ public class Login extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                //The users persal number and password has to be tested before they are granted access
+                //if it a valid, they are granted access
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
 
@@ -67,6 +69,7 @@ public class Login extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+
                 AlertDialog.Builder dialog = new AlertDialog.Builder(Login.this);
                 dialog.setTitle("Reset password");
                 dialog.setMessage("Please enter the email address related to the account you want" +
@@ -82,7 +85,8 @@ public class Login extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(Login.this, Register.class));
+                //This button sends the user to Admin class so that they can login
+                startActivity(new Intent(Login.this, Admin.class));
             }
         });
 

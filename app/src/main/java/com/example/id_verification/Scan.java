@@ -3,6 +3,7 @@ package com.example.id_verification;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,10 @@ public class Scan extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                //After a picture has been scanned, it will send the officer to Display_Details class
+                //to show results, whether it was found or not.
+
+                startActivity(new Intent(Scan.this, Display_Details.class));
 
             }
         });
@@ -54,6 +59,10 @@ public class Scan extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                //After the ID number was searched, it will send the officer to Display_Details class
+                //to show results, whether it was found or not.
+
+                startActivity(new Intent(Scan.this, Display_Details.class));
 
             }
         });

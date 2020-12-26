@@ -36,6 +36,7 @@
     <string name="who_is_being_registered">Who is being registered?</string>
     <string name="identification_picture">Identification Picture</string>
     <string name="Dash">-------------------------------------------------------------------------------</string>
+    <string name="login_in_as_admin">Login As Admin</string>
 
     <string-array name="type_array">
         <item>Admin</item>
@@ -45,7 +46,7 @@
     <string-array name="gender_array">
         <item>Female</item>
         <item>Male</item>
-        </string-array>
+    </string-array>
 
     <string-array name="rank_array">
         <item>National commissioner</item>
@@ -86,12 +87,12 @@
     </string-array>
 
     <string-array name="Title">
-    <item>Mr</item>
-    <item>Mrs</item>
-    <item>Miss</item>
-    <item>Ms</item>
-    <item>Pastor</item>
-    <item>DR</item>
-</string-array>
+        <item>Mr</item>
+        <item>Mrs</item>
+        <item>Miss</item>
+        <item>Ms</item>
+        <item>Pastor</item>
+        <item>DR</item>
+    </string-array>
 
 </resources>
