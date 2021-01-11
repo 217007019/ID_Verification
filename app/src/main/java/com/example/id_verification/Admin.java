@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 public class Admin extends AppCompatActivity
 {
@@ -44,6 +50,7 @@ public class Admin extends AppCompatActivity
         etAPassword = findViewById(R.id.etA_Password);
 
 
+        //Check is the user attempting to login is admin or even allowed to user the application
 
         btnA_Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +58,55 @@ public class Admin extends AppCompatActivity
             {
                 //This button needs to first test is the user who's trying to login is the Admin.
                 //If they are not, they wont be allowed in. If they are admin they will be sent to admin_home
-                startActivity(new Intent(Admin.this,Admin_Home.class));
+
+                if (etA_Email.getText().toString().trim().isEmpty() || etAPassword.getText().toString().trim().isEmpty())
+                {
+                    Toast.makeText(Admin.this, "Please Enter All Fields", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                        String mail = etA_Email.getText().toString().trim();
+                        String password = etAPassword.getText().toString().trim();
+
+
+
+                        Backendless.UserService.login(mail, password, new AsyncCallback<BackendlessUser>()
+                        {
+
+                            @Override
+                            public void handleResponse(BackendlessUser response)
+                            {
+                                //retrieving 'User' property from backendless so that the person trying to login
+                                //can be tested if they are admin on not before logging in
+
+                                BackendlessUser backendlessUser = Backendless.UserService.CurrentUser();
+
+                                String userPermission = (String) backendlessUser.getProperty("User");
+
+                                if(userPermission.equals("Admin"))
+                                {
+                                    ApplicationClass.user = response;
+                                    Toast.makeText(Admin.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(Admin.this,Admin_Home.class));
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(Admin.this, "Only Admins Are Allowed Access!!! Please make sure you're registered as one",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+
+                            @Override
+                            public void handleFault(BackendlessFault fault)
+                            {
+                                Toast.makeText(Admin.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        }, true);
+
+                    }
 
             }
         });
@@ -68,6 +123,9 @@ public class Admin extends AppCompatActivity
 
                 View dialogView = getLayoutInflater().inflate(R.layout.reset_password, null);
                 dialog.setView(dialogView);
+
+
+
 
             }
         });

@@ -12,6 +12,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 public class Login extends AppCompatActivity
 {
@@ -22,7 +28,7 @@ public class Login extends AppCompatActivity
 
     TextView  tvWelcome, tvForgotPassword, tvRegister;
     ImageView ivStar;
-    EditText etPersalNumber, etPassword, etResetMail;
+    EditText etEmail, etPassword, etResetMail;
     Button btnLogin;
 
 
@@ -46,9 +52,11 @@ public class Login extends AppCompatActivity
 
         btnLogin = findViewById(R.id.btnLogin);
 
-        etPersalNumber = findViewById(R.id.etPassword);
+        etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         etResetMail = findViewById(R.id.etResetMail);
+
+        //check if the user is allowed to use the app
 
         btnLogin.setOnClickListener(new View.OnClickListener()
         {
@@ -57,8 +65,77 @@ public class Login extends AppCompatActivity
             {
                 //The users persal number and password has to be tested before they are granted access
                 //if it a valid, they are granted access
-                Intent intent = new Intent(Login.this, MainActivity.class);
-                startActivity(intent);
+                if (etEmail.getText().toString().trim().isEmpty() || etPassword.getText().toString().trim().isEmpty())
+                {
+                    Toast.makeText(Login.this, "Please Enter All Fields", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+
+                        String mail = etEmail.getText().toString().trim();
+                        String password = etPassword.getText().toString().trim();
+
+                    Backendless.UserService.login(mail, password, new AsyncCallback<BackendlessUser>()
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser response)
+                        {
+                            //retrieving 'User' property from backendless so that the person trying to login
+                            //can be tested if they are admin on not before logging in
+
+                            BackendlessUser backendlessUser = Backendless.UserService.CurrentUser();
+
+                            String userPermission = (String) backendlessUser.getProperty("Permission");
+
+                            if(userPermission.equals("Allowed"))
+                            {
+                                ApplicationClass.user = response;
+                                Toast.makeText(Login.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Login.this, MainActivity.class);
+                                startActivity(intent);
+
+                                //Save Active User whenever they login to do the scan
+                                String activeUser = backendlessUser.getEmail();
+
+                                ActiveUser au = new ActiveUser();
+                                au.setEmail(activeUser);
+
+                                Backendless.Data.of(ActiveUser.class).save(au, new AsyncCallback<ActiveUser>() {
+                                    @Override
+                                    public void handleResponse(ActiveUser response)
+                                    {
+                                        Toast.makeText(Login.this, "Active User Save!", Toast.LENGTH_SHORT).show();
+
+                                    }
+
+                                    @Override
+                                    public void handleFault(BackendlessFault fault)
+                                    {
+                                        Toast.makeText(Login.this, "Error: " + fault.getMessage(),
+                                                Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                            }
+                            else
+                            {
+                                Toast.makeText(Login.this, "This user is currently not given access!!", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault)
+                        {
+                            Toast.makeText(Login.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }, true);
+
+
+                }
 
             }
 
