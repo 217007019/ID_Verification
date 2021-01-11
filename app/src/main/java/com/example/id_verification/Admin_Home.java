@@ -56,6 +56,7 @@ public class Admin_Home extends AppCompatActivity
             public void onClick(View view)
             {
                 //Whenever the Admin wants to update the users info, this code will be invoked
+                startActivity(new Intent(Admin_Home.this, UserList.class));
 
             }
         });
@@ -65,6 +66,7 @@ public class Admin_Home extends AppCompatActivity
             public void onClick(View view)
             {
                 //Whenever the Admin wants to delete user, this code will be invoked
+                startActivity(new Intent(Admin_Home.this, UserInfo.class));
 
             }
         });

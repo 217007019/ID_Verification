@@ -1,43 +1,27 @@
 package com.example.id_verification;
 
-public class Officer
+public class User
 {
 
 
     private String objectId;
-    private String type;
+    private String user;
+    private  String persalNumber;
     private String name;
     private String surname;
     private String middleName;
     private String title;
-    private int ID;
+    private String ID;
     private String gender;
     private String rank;
     private String province;
     private String station;
     private String picture;
+    private String permission;
     private String email;
+    private String password;
+    private String confirmPassword;
 
-    //constructor
-
-    public Officer(String objectId, String type, String name, String surname, String middleName,
-                   String title, int ID, String gender, String rank, String province,
-                   String station, String picture, String email)
-    {
-        this.objectId = objectId;
-        this.type = type;
-        this.name = name;
-        this.surname = surname;
-        this.middleName = middleName;
-        this.title = title;
-        this.ID = ID;
-        this.gender = gender;
-        this.rank = rank;
-        this.province = province;
-        this.station = station;
-        this.picture = picture;
-        this.email = email;
-    }
 
     //getters and setters
 
@@ -49,12 +33,20 @@ public class Officer
         this.objectId = objectId;
     }
 
-    public String getType() {
-        return type;
+    public String getUser() {
+        return user;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPersalNumber() {
+        return persalNumber;
+    }
+
+    public void setPersalNumber(String persalNumber) {
+        this.persalNumber = persalNumber;
     }
 
     public String getName() {
@@ -89,11 +81,11 @@ public class Officer
         this.title = title;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -137,11 +129,31 @@ public class Officer
         this.picture = picture;
     }
 
+    public String getPermission() {return permission; }
+
+    public void setPermission(String permission) {this.permission = permission; }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

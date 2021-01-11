@@ -9,11 +9,28 @@ import android.os.Build;
 import android.view.View;
 import android.widget.TextView;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+
+import java.security.PublicKey;
+import java.util.List;
+
 public class ApplicationClass extends Application
 {
+    public static  final String APPLICATION_ID = "21B311AE-AD25-BC25-FF8A-E04E130A5A00";
+    public static final String API_KEY = "929DAD06-85C4-43C9-B75A-9DED0038F7FD";
+    public static  final String SERVER_URL ="https://api.backendless.com";
+
+    public static BackendlessUser user;
+    public static List<User> userList;
+
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
+
+        Backendless.setUrl(SERVER_URL);
+        Backendless.initApp(getApplicationContext(), APPLICATION_ID, API_KEY);
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)

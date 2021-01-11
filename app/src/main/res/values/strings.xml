@@ -40,6 +40,9 @@
     <string name="province">Province</string>
     <string name="station">Station</string>
 
+    <string name="name">Name</string>
+
+
     <string-array name="type_array">
         <item>Admin</item>
         <item>Police</item>
@@ -159,6 +162,11 @@
         <item>Ms</item>
         <item>Pastor</item>
         <item>DR</item>
+    </string-array>
+
+    <string-array name="Permission">
+        <item>Allowed</item>
+        <item>Not Allowed</item>
     </string-array>
 
 </resources>
