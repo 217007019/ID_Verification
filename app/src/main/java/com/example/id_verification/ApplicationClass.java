@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
+import com.example.id_verification.Classes.Civilian;
+import com.example.id_verification.Classes.HomeAffairs;
+import com.example.id_verification.Classes.User;
 
-import java.security.PublicKey;
 import java.util.List;
 
 public class ApplicationClass extends Application
@@ -23,6 +25,8 @@ public class ApplicationClass extends Application
 
     public static BackendlessUser user;
     public static List<User> userList;
+    public  static List<HomeAffairs> homeAffairs;
+    public static List<Civilian> civilians;
 
     @Override
     public void onCreate()

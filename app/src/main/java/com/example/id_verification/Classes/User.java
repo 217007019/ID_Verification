@@ -1,4 +1,4 @@
-package com.example.id_verification;
+package com.example.id_verification.Classes;
 
 public class User
 {

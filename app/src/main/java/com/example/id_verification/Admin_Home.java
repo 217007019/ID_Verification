@@ -1,13 +1,21 @@
 package com.example.id_verification;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 public class Admin_Home extends AppCompatActivity
 {
@@ -73,5 +81,53 @@ public class Admin_Home extends AppCompatActivity
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.logout:
+
+
+
+                Backendless.UserService.logout(new AsyncCallback<Void>()
+                {
+                    @Override
+                    public void handleResponse(Void response)
+                    {
+                        Toast.makeText(Admin_Home.this, "User signed out successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Admin_Home.this, Admin.class));
+                        Admin_Home.this.finish();
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault)
+                    {
+                        Toast.makeText(Admin_Home.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+
+            case R.id.home:
+
+                startActivity(new Intent(Admin_Home.this, Admin_Home.class));
+
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

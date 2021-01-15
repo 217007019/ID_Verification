@@ -6,12 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,63 +18,50 @@ import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
-public class Scan extends AppCompatActivity
+public class DisplayCivilian extends AppCompatActivity
 {
-
     private View mProgressView;
     private View mRegisterFormView;
     private TextView tvLoad;
 
-    TextView tvScaID, tvScan;
-    Button btnScan1, btnScan2;
-    EditText etScan;
+    Button btnCivilian;
+
+    TextView Display_Civilian;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan);
+        setContentView(R.layout.activity_display_civilian);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Scan Screen");
+        actionBar.setTitle("Display Civilian");
 
         mRegisterFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
         tvLoad = findViewById(R.id.tvLoad);
 
-        tvScaID = findViewById(R.id.tvScanID);
-        tvScan = findViewById(R.id.tvScan);
+        btnCivilian = findViewById(R.id.btnCivilian);
 
-        btnScan1 = findViewById(R.id.btnScan1);
-        btnScan2 = findViewById(R.id.btnScan2);
+        Display_Civilian = findViewById(R.id.Display_Civilian);
 
-        etScan = findViewById(R.id.etScan);
+        String name = getIntent().getStringExtra("name");
+        String surname = getIntent().getStringExtra("surname");
+        String id = getIntent().getStringExtra("id");
 
-        btnScan1.setOnClickListener(new View.OnClickListener()
+        Display_Civilian.setText("Registered Civilian \n\n\nCivilian ID Number: " +id+ "\nCivilian Name: "
+                +name + "\nCivilian Surname: " +surname);
+
+        btnCivilian.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                //After a picture has been scanned, it will send the officer to Display_Details class
-                //to show results, whether it was found or not.
-
-                startActivity(new Intent(Scan.this, Display_Details.class));
+                Intent intent = new Intent(DisplayCivilian.this, Scan.class);
+                startActivity(intent);
 
             }
         });
-
-        btnScan2.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                //After the ID number was searched, it will send the officer to Display_Details class
-                //to show results, whether it was found or not.
-
-                startActivity(new Intent(Scan.this, Display_Details.class));
-
-            }
-        });
-
 
     }
 
@@ -99,15 +85,15 @@ public class Scan extends AppCompatActivity
                     @Override
                     public void handleResponse(Void response)
                     {
-                        Toast.makeText(Scan.this, "User signed out successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Scan.this, Login.class));
-                        Scan.this.finish();
+                        Toast.makeText(DisplayCivilian.this, "User signed out successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(DisplayCivilian.this, Login.class));
+                        DisplayCivilian.this.finish();
                     }
 
                     @Override
                     public void handleFault(BackendlessFault fault)
                     {
-                        Toast.makeText(Scan.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DisplayCivilian.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -116,7 +102,7 @@ public class Scan extends AppCompatActivity
 
             case R.id.home:
 
-                startActivity(new Intent(Scan.this, MainActivity.class));
+                startActivity(new Intent(DisplayCivilian.this, MainActivity.class));
 
                 break;
 

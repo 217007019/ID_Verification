@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -89,9 +90,12 @@ public class Login extends AppCompatActivity
 
                             if(userPermission.equals("Allowed"))
                             {
+                                String name = backendlessUser.getUserId();
+
                                 ApplicationClass.user = response;
                                 Toast.makeText(Login.this, "Logged in Successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Login.this, MainActivity.class);
+                                intent.putExtra("ID", name);
                                 startActivity(intent);
 
                                 //Save Active User whenever they login to do the scan
@@ -142,21 +146,73 @@ public class Login extends AppCompatActivity
         });
 
         //Whenever a user wants to reset their password, this code will be invoked
-        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+        tvForgotPassword.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view)
             {
 
-                AlertDialog.Builder dialog = new AlertDialog.Builder(Login.this);
-                dialog.setTitle("Reset password");
-                dialog.setMessage("Please enter the email address related to the account you want" +
+                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                builder.setTitle("Reset password");
+                builder.setMessage("Please enter the email address related to the account you want" +
                         "to reset the password for. A link will be sent to the email address:");
 
                 View dialogView = getLayoutInflater().inflate(R.layout.reset_password, null);
-                dialog.setView(dialogView);
+                builder.setView(dialogView);
+
+                etResetMail = dialogView.findViewById(R.id.etResetMail);
+
+                builder.setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+
+                        if (etResetMail.getText().toString().isEmpty())
+                        {
+
+                            Toast.makeText(Login.this, "Please enter mail address!", Toast.LENGTH_SHORT).show();
+
+                        } else
+                            {
+                            tvLoad.setText("Busy sending reset instructions...please wait...");
+
+                            Backendless.UserService.restorePassword(etResetMail.getText().toString().trim(), new AsyncCallback<Void>()
+                            {
+                                @Override
+                                public void handleResponse(Void response)
+                                {
+
+
+                                    Toast.makeText(Login.this, "Reset instruction sent to mail address!", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                                @Override
+                                public void handleFault(BackendlessFault fault)
+                                {
+
+
+                                    Toast.makeText(Login.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                        }
+
+
+                    }
+
+        });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
 
             }
-        });
+            });
+
+                builder.show();
+        }
+    });
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override

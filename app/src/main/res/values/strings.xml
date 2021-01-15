@@ -41,6 +41,7 @@
     <string name="station">Station</string>
 
     <string name="name">Name</string>
+    <string name="scan_id">Scan ID</string>
 
 
     <string-array name="type_array">

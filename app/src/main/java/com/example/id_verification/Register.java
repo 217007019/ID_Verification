@@ -13,6 +13,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,7 +52,8 @@ public class Register extends AppCompatActivity  {
     Button btnR_Camera, btnR_Register;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -193,6 +196,50 @@ public class Register extends AppCompatActivity  {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.logout:
+                Backendless.UserService.logout(new AsyncCallback<Void>()
+                {
+                    @Override
+                    public void handleResponse(Void response)
+                    {
+                        Toast.makeText(Register.this, "User signed out successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Register.this, Admin.class));
+                        Register.this.finish();
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault)
+                    {
+                        Toast.makeText(Register.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+
+            case R.id.home:
+
+                startActivity(new Intent(Register.this, Admin_Home.class));
+
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //asks for permission to use the camera

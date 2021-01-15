@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:orientation="vertical"
     android:background="@color/colorPrimaryLight"
-    android:orientation="vertical">
+    tools:context=".DisplayCivilian">
+
 
     <ProgressBar
         android:id="@+id/login_progress"
@@ -37,51 +39,29 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvWelcomeHome"
+            android:id="@+id/Display_Civilian"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textSize="16sp"
             android:textColor="@color/PrimaryText"
-            android:textSize="18sp"/>
 
-        <TextView
-            android:id="@+id/tvRegisterHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/please_register_the_person_who_brought_the_id"
-            android:textColor="@color/PrimaryText"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"/>
-
-        <EditText
-            android:id="@+id/etID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/enter_civilian_id_number"
-            android:textColor="@color/PrimaryText"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:inputType="number"/>
-
+            />
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnCivilian"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/scan_id"
             android:background="@drawable/buttons"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            android:textColor="@color/Text"
             android:layout_marginStart="30dp"
-            android:text="@string/register"
-            android:textColor="@color/Text"/>
+            android:layout_marginEnd="30dp"
+            />
+
 
 
     </LinearLayout>
