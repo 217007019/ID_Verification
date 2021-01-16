@@ -41,12 +41,34 @@
             android:id="@+id/tvDisplayInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:textColor="@color/PrimaryText"
             android:textAlignment="textStart"
             android:text="Display Screen"/>
+
+        <ImageView
+            android:id="@+id/qrCode"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/star"
+            />
+
+        <Button
+            android:id="@+id/printQR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/buttons"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/print_qr_code"
+            android:textColor="@color/Text"
+            />
 
     </LinearLayout>
 

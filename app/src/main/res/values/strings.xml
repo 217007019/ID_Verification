@@ -42,6 +42,7 @@
 
     <string name="name">Name</string>
     <string name="scan_id">Scan ID</string>
+    <string name="print_qr_code">Print QR Code</string>
 
 
     <string-array name="type_array">
